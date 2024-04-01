@@ -1,71 +1,37 @@
 import Square from "./Square";
-import { useState } from "react";
+//import { useState } from "react";
 
-const Board=()=>{
-    const [squares,setSquares]=useState(Array(9).fill(null))
-    const [isXNext,setIsXNext]=useState(false)
+const Board = ({squares,handleSquareClick}) => {
+  const renderSquare = (position) => {
+    return (
+      <Square
+        value={squares[position]}
+        onClick={() => handleSquareClick(position)}
+      />
+    );
+  };
 
-    console.log(squares)
+  return (
+    <div className="board">
+      <div className="board-row">
+        {renderSquare(0)}
+        {renderSquare(1)}
+        {renderSquare(2)}
+      </div>
 
-    const handleSquaresClick=(clickedPosition)=>{
+      <div className="board-row">
+        {renderSquare(3)}
+        {renderSquare(4)}
+        {renderSquare(5)}
+      </div>
 
-        if (squares[clickedPosition]){
-            return;
-        }
-
-
-        setSquares(currentSquares=>{
-            return (currentSquares.map((squareValue,position)=>{
-                if(clickedPosition === position){
-                    return ( isXNext?"X":"0");
-                }
-                return squareValue;
-            }))
-        })
-
-        setIsXNext((currentIsXNext)=> (!currentIsXNext))
-
-    };
-
-    const renderSquare = position =>{
-        return(
-            <Square value={squares[position]} 
-            onClick={()=>handleSquaresClick(position)}
-            />
-        )
-    }
-
-  return(<div className="board">
-
-    <div className="board-row">
-
-    {renderSquare(0)}
-    {renderSquare(1)}
-    {renderSquare(2)}
-   
-    
+      <div className="board-row">
+        {renderSquare(6)}
+        {renderSquare(7)}
+        {renderSquare(8)}
+      </div>
     </div>
+  );
+};
 
-    <div className="board-row">
-
-    {renderSquare(3)} 
-    {renderSquare(4)}
-    {renderSquare(5)}
-
-    
-        
-    </div>
-
-    <div className="board-row">
-
-    {renderSquare(6)}
-    {renderSquare(7)}
-    {renderSquare(8)}
-
-    
-
-    </div>
-</div>)
-}
-
-export default Board
+export default Board;
