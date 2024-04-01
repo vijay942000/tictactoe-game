@@ -1,7 +1,9 @@
-const Square= ({value})=>{
+//import "/src/styles.scss";
+
+const Square= ({value,onClick})=>{
     
     return (
-    <button type="button" className="square">{value}</button>
+    <button type="button" className="square" onClick={onClick}>{value}</button>
       
     )
   }

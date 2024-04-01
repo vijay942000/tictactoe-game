@@ -1,6 +1,6 @@
-//import { useState } from 'react'
+
 import Board from "./components/Board";
-//import "./styles.scss";
+import "./styles.scss";
 
 const App = () => {
   return (
