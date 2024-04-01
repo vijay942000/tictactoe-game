@@ -17,5 +17,6 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
+    "nc-unused-vars":"warn"
   },
 }
